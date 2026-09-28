@@ -1,0 +1,64 @@
+{
+  "cases": [
+    {
+    "id": "M01",
+    "title": "Write approval gate",
+    "status": "PASS",
+    "evidence": "DevAgent inspected the file automatically, requested approval before edit_file executed, left the file unchanged before approval, and applied the requested docstring only after approval."
+    },
+    {
+    "id": "M02",
+    "title": "Approval rejection",
+    "status": "PASS",
+    "evidence": "DevAgent requested approval for the code edit. I rejected it, the file remained unchanged, the edit was not retried repeatedly, and the task ended cleanly."
+    },
+    {
+    "id": "M03",
+    "title": "Autonomous debugging",
+    "status": "PASS",
+    "evidence": "DevAgent identified the controlled calculator bug, requested approval before editing, applied the fix after approval, ran the related tests, and finished with the tests passing."
+    },
+    {
+    "id": "M04",
+    "title": "Restart recovery",
+    "status": "PASS",
+    "evidence": "I restarted the backend while the task was waiting for approval. The same LangGraph thread remained recoverable, approval resumed the original task, and the task completed successfully."
+    },
+    {
+    "id": "M05",
+    "title": "Persistent conversation",
+    "status": "PASS",
+    "evidence": "After restarting DevAgent, the previous workspace conversation reloaded from PostgreSQL and DevAgent correctly recalled that the previous task discussed the divide function."
+    },
+    {
+    "id": "M06",
+    "title": "Guardrail enforcement",
+    "status": "PASS",
+    "evidence": "In a controlled failing-test scenario, DevAgent stopped execution when the configured execution limit was reached and did not continue an unbounded debugging loop."
+    },
+    {
+    "id": "M07",
+    "title": "Vision fallback",
+    "status": "PASS",
+    "evidence": "Screen analysis required approval and described the visible screen after approval. A later source-code question used repository/file tools instead of vision."
+    },
+    {
+    "id": "M08",
+    "title": "Desktop action approval",
+    "status": "PASS",
+    "evidence": "DevAgent requested approval before opening the Swagger URL. The browser remained unchanged before approval and opened the page only after approval."
+    },
+    {
+    "id": "M09",
+    "title": "Voice input",
+    "status": "PASS",
+    "evidence": "I recorded a coding instruction, Whisper transcribed it into the DevAgent composer, and the transcription remained editable without being submitted automatically."
+    },
+    {
+    "id": "M10",
+    "title": "View Diff",
+    "status": "PASS",
+    "evidence": "With a tracked workspace modification present, View Diff opened successfully and displayed the actual Git diff matching the repository change."
+    }
+  ]
+}

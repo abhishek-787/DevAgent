@@ -1,0 +1,67 @@
+# -------------------------
+# Environment / secrets
+# -------------------------
+
+.env
+.env.*
+!.env.example
+
+# -------------------------
+# Python
+# -------------------------
+
+__pycache__/
+*.py[cod]
+*.pyd
+*.pyo
+
+.venv/
+venv/
+env/
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+backend/build/
+backend/dist/
+backend/*.spec
+
+# -------------------------
+# Node / Electron
+# -------------------------
+
+node_modules/
+
+desktop/node_modules/
+desktop/dist/
+desktop/release/
+
+*.log
+
+# -------------------------
+# IDE
+# -------------------------
+
+.vscode/
+.idea/
+
+# -------------------------
+# OS
+# -------------------------
+
+.DS_Store
+Thumbs.db
+
+# -------------------------
+# Local databases / temp
+# -------------------------
+
+*.sqlite
+*.sqlite3
+
+# -------------------------
+# Evaluation generated output
+# -------------------------
+
+backend/evals/results/
