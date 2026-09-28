@@ -238,11 +238,11 @@ workspace and are not intended as general AI accuracy guarantees.
 
 ### Human-in-the-Loop Approval
 
-![Approval Flow](docs/screenshots/approval.png)
+![Approval Flow](docs/screenshots/human-approval.png)
 
 ### Autonomous Task
 
-![Git Diff](docs/screenshots/human-approval.png)
+![Git Diff](docs/screenshots/autonomous-task.png)
 
 ---
 
