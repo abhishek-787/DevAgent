@@ -234,7 +234,7 @@ workspace and are not intended as general AI accuracy guarantees.
 
 ### DevAgent Workspace
 
-![DevAgent Workspace](docs/screenshots/main-workspace.png)
+![DevAgent Workspace](docs/screenshots/devagent-main.png)
 
 ### Human-in-the-Loop Approval
 
@@ -242,7 +242,7 @@ workspace and are not intended as general AI accuracy guarantees.
 
 ### Autonomous Task
 
-![Git Diff](docs/screenshots/autonomous-task.png)
+![Git Diff](docs/screenshots/human-approval.png)
 
 ---
 
