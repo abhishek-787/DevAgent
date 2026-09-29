@@ -1,7 +1,6 @@
 from datetime import datetime
 
 from sqlalchemy import (
-    BigInteger,
     DateTime,
     Integer,
     JSON,
@@ -14,7 +13,7 @@ from sqlalchemy.orm import (
     mapped_column,
 )
 
-from app.repository.database import (
+from app.memory.database import (
     Base,
 )
 
@@ -33,7 +32,6 @@ class WorkspaceMemory(Base):
     )
 
     id: Mapped[int] = mapped_column(
-        BigInteger,
         primary_key=True,
         autoincrement=True,
     )
@@ -81,7 +79,6 @@ class AgentTask(Base):
     __tablename__ = "agent_tasks"
 
     id: Mapped[int] = mapped_column(
-        BigInteger,
         primary_key=True,
         autoincrement=True,
     )
@@ -168,7 +165,6 @@ class AgentAuditEvent(Base):
     )
 
     id: Mapped[int] = mapped_column(
-        BigInteger,
         primary_key=True,
         autoincrement=True,
     )

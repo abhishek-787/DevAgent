@@ -1,52 +1,39 @@
 import atexit
+import sqlite3
 
-import psycopg
-
-from langgraph.checkpoint.postgres import (
-    PostgresSaver,
-)
-from psycopg.rows import (
-    dict_row,
+from langgraph.checkpoint.sqlite import (
+    SqliteSaver,
 )
 
-from app.core.config import (
-    settings,
+from app.memory.database import (
+    DATA_DIR,
 )
 
 
-def _get_checkpoint_database_url() -> str:
-    database_url = (
-        settings.database_url
-    )
-
-    return database_url.replace(
-        "postgresql+psycopg://",
-        "postgresql://",
-        1,
-    )
+CHECKPOINT_PATH = (
+    DATA_DIR
+    / "checkpoints.db"
+)
 
 
 checkpoint_connection = (
-    psycopg.connect(
-        _get_checkpoint_database_url(),
-        autocommit=True,
-        prepare_threshold=0,
-        row_factory=dict_row,
+    sqlite3.connect(
+        str(CHECKPOINT_PATH),
+        check_same_thread=False,
     )
 )
 
 
-checkpointer = PostgresSaver(
+checkpointer = SqliteSaver(
     checkpoint_connection
 )
 
 
-checkpointer.setup()
-
-
 def close_checkpoint_connection() -> None:
-    if not checkpoint_connection.closed:
+    try:
         checkpoint_connection.close()
+    except Exception:
+        pass
 
 
 atexit.register(

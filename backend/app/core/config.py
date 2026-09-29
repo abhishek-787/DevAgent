@@ -13,16 +13,27 @@ ENV_FILE = os.getenv(
 
 
 class Settings(BaseSettings):
-    app_name: str
+    app_name: str = "DevAgent"
 
-    ollama_base_url: str
+    ollama_base_url: str = (
+        "http://192.168.0.7:11434"
+    )
 
-    coding_model: str
-    general_model: str
-    vision_model: str
-    embedding_model: str
+    coding_model: str = (
+        "gemma4:31b-cloud"
+    )
 
-    database_url: str
+    general_model: str = (
+    "llama3.2:3b"
+)
+
+    vision_model: str = (
+        "qwen3-vl:4b"
+    )
+
+    embedding_model: str = (
+        "nomic-embed-text:latest"
+    )
 
     model_config = SettingsConfigDict(
         env_file=ENV_FILE,

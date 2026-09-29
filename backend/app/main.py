@@ -5,10 +5,6 @@ from app.core.config import settings
 
 from app.api.workspace import router as workspace_router
 
-app = FastAPI(
-    title=settings.app_name,
-)
-
 from app.api.files import (
     router as files_router,
 )
@@ -56,6 +52,21 @@ from app.api.guardrails import (
 from app.api.audit import (
     router as audit_router,
 )
+from app.memory.database import (
+    initialize_memory_database,
+)
+
+from app.repository.database import (
+    initialize_database,
+)
+
+app = FastAPI(
+    title=settings.app_name,
+)
+
+initialize_memory_database()
+
+initialize_database()
 
 @app.get("/health")
 def health():

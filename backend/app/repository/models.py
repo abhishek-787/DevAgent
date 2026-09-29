@@ -1,12 +1,9 @@
 from datetime import datetime
 
-from pgvector.sqlalchemy import (
-    Vector,
-)
 from sqlalchemy import (
-    BigInteger,
     DateTime,
     Integer,
+    JSON,
     Text,
     UniqueConstraint,
     func,
@@ -39,7 +36,7 @@ class RepositoryChunk(Base):
     )
 
     id: Mapped[int] = mapped_column(
-        BigInteger,
+        Integer,
         primary_key=True,
         autoincrement=True,
     )
@@ -110,7 +107,9 @@ class RepositoryChunk(Base):
     embedding: Mapped[
         list[float] | None
     ] = mapped_column(
-        Vector(768),
+        JSON(
+            none_as_null=True
+        ),
         nullable=True,
     )
 

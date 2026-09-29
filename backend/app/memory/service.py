@@ -7,7 +7,7 @@ from app.memory.models import (
     AgentTask,
     WorkspaceMemory,
 )
-from app.repository.database import (
+from app.memory.database import (
     get_session,
 )
 from app.workspace.manager import (
